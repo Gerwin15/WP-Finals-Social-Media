@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-  const [username, setUsername] = useState(' ');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [popupMessage, setPopupMessage] = useState(''); // Popup message state
