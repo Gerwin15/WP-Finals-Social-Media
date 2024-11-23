@@ -1,0 +1,79 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container for the posts */
+  .post-list-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Heading */
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Error message styling */
+  .error {
+    color: red;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Post list container */
+  .post-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px; /* Add space between the cards */
+    margin-top: 20px;
+    padding: 0; /* Remove padding around the grid */
+    list-style: none; /* Remove default list styling */
+  }
+  
+  /* Individual post card */
+  .post-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced correctly */
+    height: 100%;
+  }
+  
+  /* Post card hover effect */
+  .post-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Post title */
+  .post-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Post content */
+  .post-content {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* No posts message */
+  p {
+    text-align: center;
+    color: #555;
+  }
+  
