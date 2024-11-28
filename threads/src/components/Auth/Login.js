@@ -91,59 +91,61 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
-    backgroundColor: '#f9f9f9',
-    padding: '20px',
+    height: '100vh', // Full height of the viewport
+    backgroundColor: '#fff', // White background for the page
+    padding: '40px', // Padding for spacing
+    margin: 0, // Ensure no margin is added around the page
   },
   title: {
-    fontSize: '26px',
+    fontSize: '30px', // Larger title size
     fontWeight: '600',
-    color: '#333',
-    marginBottom: '20px',
+    color: '#333',  // Dark color for title text
+    marginBottom: '30px', // Space between title and form
   },
   form: {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    maxWidth: '400px',
-    padding: '20px',
-    backgroundColor: '#fff',
+    maxWidth: '500px', // Wider form
+    padding: '30px', // Increased padding for the form
+    backgroundColor: '#fff',  // White background for the form
     borderRadius: '8px',
-    boxShadow: '0 6px 15px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 6px 15px rgba(0, 0, 0, 0.1)', // Subtle box shadow
   },
   inputGroup: {
-    marginBottom: '15px',
+    marginBottom: '20px', // Space between input fields
   },
   label: {
-    fontSize: '14px',
+    fontSize: '16px', // Larger font size for labels
     fontWeight: '500',
-    color: '#333',
+    color: '#333',  // Dark color for the label text
     marginBottom: '8px',
   },
   input: {
-    padding: '12px',
+    padding: '15px', // Increased padding for inputs
     fontSize: '16px',
     border: '1px solid #ddd',
     borderRadius: '6px',
     width: '100%',
     boxSizing: 'border-box',
     outline: 'none',
-    transition: 'border-color 0.3s',
+    backgroundColor: '#f9f9f9',  // Light gray background for inputs
+    color: '#333', // Dark text inside the input
   },
   error: {
     color: '#e74c3c',
     fontSize: '14px',
-    marginBottom: '15px',
+    marginBottom: '20px',
   },
   success: {
     color: '#28a745',
     fontSize: '14px',
-    marginBottom: '15px',
+    marginBottom: '20px',
   },
   button: {
-    backgroundColor: '#1E90FF',
+    backgroundColor: '#1E90FF',  // Blue button color
     color: '#fff',
-    padding: '12px',
+    padding: '15px',
     fontSize: '16px',
     fontWeight: '600',
     border: 'none',
@@ -164,7 +166,7 @@ const styles = {
     color: '#777',
   },
   link: {
-    color: '#1E90FF',
+    color: '#1E90FF', // Blue color for the link
     textDecoration: 'none',
   },
 };

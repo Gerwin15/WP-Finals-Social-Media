@@ -6,7 +6,7 @@ import EditPost from '../components/Posts/EditPost';
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to Threads Mini</h1>
+      <h1>Threads Mini</h1>
       <CreatePost />
       <PostList />
     </div>

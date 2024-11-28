@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import DeletePost from './DeletePost'; // Import DeletePost
 import './PostList.css'; // Import the CSS for styling
 
 const PostList = () => {
@@ -10,7 +11,8 @@ const PostList = () => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get('http://localhost:1337/api/posts');
-        setPosts(response.data.data); // Access the "data" array from the response
+        const sortedPosts = response.data.data.reverse(); // Reverse the order to show most recent on top
+        setPosts(sortedPosts); // Set the state with the sorted posts
       } catch (err) {
         console.error('Error fetching posts:', err);
         setError('Failed to fetch posts. Please try again later.');
@@ -42,6 +44,14 @@ const PostList = () => {
                     ))
                   )}
               </div>
+
+              {/* Delete Button */}
+              <button
+                className="delete-button"
+                onClick={() => DeletePost(post.id, setPosts)}
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>

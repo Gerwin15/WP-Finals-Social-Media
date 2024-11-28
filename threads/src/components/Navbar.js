@@ -6,7 +6,14 @@ const Navbar = () => {
     <nav style={styles.navbar}>
       <div style={styles.navContainer}>
         <div style={styles.logo}>
-          <Link to="/" style={styles.logoLink}>Threads</Link>
+          <Link to="/" style={styles.logoLink}>
+            {/* Using an image for the logo */}
+            <img 
+              src="/threadslogo.png"  // Ensure the image is placed inside the 'public' folder
+              alt="Logo"
+              style={styles.logoImage}  // Style for the logo
+            />
+          </Link>
         </div>
         <ul style={styles.navList}>
           <li style={styles.navItem}>
@@ -46,9 +53,11 @@ const styles = {
     fontWeight: '700',
   },
   logoLink: {
-    color: '#000000',
     textDecoration: 'none',
-    fontSize: '20px',
+  },
+  logoImage: {
+    width: '100px', // Adjust based on your image size
+    height: 'auto',
   },
   navList: {
     display: 'flex',
@@ -60,18 +69,26 @@ const styles = {
     margin: '0 20px',
   },
   navLink: {
-    color: '#000000',
+    color: '#F6F6F6',
     textDecoration: 'none',
     fontSize: '16px',
     fontWeight: '500',
-    padding: '5px 10px',
-    borderRadius: '5px',
+    padding: '10px 20px',  // Increase padding to make the box bigger
+    borderRadius: '8px',    // Round the corners slightly
     transition: 'background-color 0.3s, color 0.3s',
   },
-  // Hover effect added directly in the styles
+  // Updated hover effect
   navLinkHover: {
-    backgroundColor: '#1E90FF',
-    color: '#ffffff',
+    backgroundColor: '#ffffff', // White background on hover
+    color: '#121212',  // Dark text color for better contrast
+  },
+};
+
+// Adding hover styles via inline
+const navLinkHoverStyle = {
+  ':hover': {
+    backgroundColor: '#ffffff', // White background on hover
+    color: '#121212',  // Dark text color
   },
 };
 

@@ -1,84 +1,65 @@
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 0;
-  }
-  
-  div {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  /* Heading */
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* Form styling */
-  input[type="text"], textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-    background-color: #f9f9f9;
-    color: #333;
-    transition: border-color 0.2s ease;
-  }
-  
-  /* Focus effect */
-  input[type="text"]:focus, textarea:focus {
-    border-color: #0078d4;
-    background-color: #fff;
-  }
-  
-  /* Button styling */
-  button {
-    background-color: #0078d4;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Button hover effect */
-  button:hover {
-    background-color: #005b9f;
-  }
-  
-  /* Disabled button */
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  /* Message styling */
-  p {
-    font-size: 16px;
-    color: #333;
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  /* Loading state */
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
+/* General styles for Create Post */
+.create-post-container {
+  max-width: 900px;
+  margin: 0 auto; /* Center align to match PostList */
+  padding: 20px; /* Consistent padding */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type='text'],
+textarea {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+button {
+  font-size: 16px;
+  color: white;
+  background-color: #1e90ff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #a9a9a9;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0073e6;
+}
+
+/* Success/Error message */
+p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
