@@ -1,0 +1,83 @@
+/* General styles */
+.post-list-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Post list container */
+.post-list {
+  display: flex;
+  flex-direction: column; /* Stack posts vertically */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Individual post card */
+.post-card {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Allow flexibility for content layout */
+}
+
+/* Post card hover effect */
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Post title */
+.post-card h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Post content */
+.post-content {
+  font-size: 16px;
+  color: #555;
+}
+
+/* No posts message */
+p {
+  text-align: center;
+  color: #555;
+}
+
+/* Styling for the delete button */
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for delete button */
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+/* Styling for error message */
+.error {
+  color: #e74c3c;
+  font-size: 16px;
+  margin: 20px 0;
+}

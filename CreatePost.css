@@ -1,0 +1,65 @@
+/* General styles for Create Post */
+.create-post-container {
+  max-width: 900px;
+  margin: 0 auto; /* Center align to match PostList */
+  padding: 20px; /* Consistent padding */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type='text'],
+textarea {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+button {
+  font-size: 16px;
+  color: white;
+  background-color: #1e90ff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #a9a9a9;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0073e6;
+}
+
+/* Success/Error message */
+p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
