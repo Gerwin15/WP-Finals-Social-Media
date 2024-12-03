@@ -18,29 +18,14 @@
         "Content": {
             "type": "blocks"
         },
-        "user": {
-            "type": "relation",
-            "relation": "oneToOne",
-            "target": "plugin::users-permissions.user"
-        },
         "Likes": {
             "type": "integer"
         },
-        "Comment": {
+        "user": {
             "type": "relation",
-            "relation": "oneToOne",
-            "target": "plugin::users-permissions.user"
-        },
-        "Picture": {
-            "type": "media",
-            "multiple": false,
-            "required": false,
-            "allowedTypes": [
-                "images",
-                "files",
-                "videos",
-                "audios"
-            ]
+            "relation": "manyToOne",
+            "target": "plugin::users-permissions.user",
+            "inversedBy": "posts"
         }
     }
 }

@@ -52,10 +52,10 @@ const LoginPage = () => {
 
   return (
     <div style={pageStyle}>
-      <h2 style={headingStyle}>Login</h2>
-      <div style={formStyle}>
+      
+      
         <Login />
-      </div>
+      
     </div>
   );
 };
