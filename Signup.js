@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import Login from './Login'; // Import the Login component
 
 // Create a context for registered user
-const RegisteredUserContext = createContext();
 
+export const RegisteredUserContext = createContext();
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');

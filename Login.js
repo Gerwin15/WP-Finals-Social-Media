@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { registeredUser } from './Signup.js';
-import CryptoJS from 'crypto-js';
+import { RegisteredUserContext } from './Signup.js';
+import axios from 'axios';
 
-const Login = ({registeredUser}) => {
+const Login = () => {
+  const registeredUser = useContext(RegisteredUserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,40 +17,24 @@ const Login = ({registeredUser}) => {
     setError('');
     setSuccessMessage('');
 
-    const hashPassword = (password) => {
-      const salt = CryptoJS.lib.WordArray.random(16 / 4).toString(CryptoJS.enc.Hex);
-      const hash = CryptoJS.HmacSHA256(password, salt);
-      return hash.toString(CryptoJS.enc.Hex);
-    };
-    // Basic validation
-    if (!email || !password) {
-      setError('Both fields are required.');
-      return;
-    }
-
-    // Simulating authentication process (replace with actual logic)
-    setIsLoading(true);
-    const hashedPassword = hashPassword(password);
-    setTimeout(() => {
-      // Simulate any email/password is valid (for now)
-      if (registeredUser && registeredUser.email && registeredUser.password) {
-      if (email === registeredUser.email && password === registeredUser.password) {
-        // Show success message
-        setSuccessMessage('Login Successful!');
-        setIsLoading(true);
-        // Redirect after a short delay
-        setTimeout(() => {
-          navigate('/');
-        }, 1500); // 1.5 second delay to show success message
-      } else {
-        setError('Invalid email or password');
-      }
-    } else {
-      setError('No user found');
-    }
-
+    try {
+      const response = await axios.post('http://localhost:1337/api/auth/local', {
+        identifier: email,
+        password: password,
+      });
+      const token = response.data.jwt;
+      localStorage.setItem('token', token);
+      setSuccessMessage('Login Successful!');
+      setIsLoading(true);
+      setTimeout(() => {
+        navigate('/');
+      }, 1500); // 1.5 second delay to show success message
+    } catch (error) {
+      setError('Invalid email or password');
+      console.error(error.response?.data || error.message);
+    } finally {
       setIsLoading(false);
-    }, 2000); // Simulating a 2-second authentication delay
+    }
   };
 
   return (
