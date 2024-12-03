@@ -3,8 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Login from './Login'; // Import the Login component
 
-// Create a context for registered user
-
 export const RegisteredUserContext = createContext();
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -36,8 +34,7 @@ const Signup = () => {
 
       // Automatically hide the popup and redirect after 2 seconds
       setTimeout(() => {
-        setPopupMessage('');
-        setShowLogin(true);
+        navigate('/login');
       }, 2000);
     } catch (error) {
       // Set error message
