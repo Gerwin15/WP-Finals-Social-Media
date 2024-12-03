@@ -1,25 +1,32 @@
-
-import React, { useState } from 'react';
+import React, { useState, createContext, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Login from './Login'; // Import the Login component
 
+// Create a context for registered user
+
+export const RegisteredUserContext = createContext();
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [popupMessage, setPopupMessage] = useState(''); // Popup message state
   const [isError, setIsError] = useState(false); // Success or error flag
+  const [registeredUser, setRegisteredUser] = useState({});
+  const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:1337/api/auth/local/register', {
+      const response = await axios.post('http://localhost:1337/api/auth/local/register', {
         username,
         email,
         password,
       });
-
+      setRegisteredUser(response.data); // Store the registered user's data
+      console.log('Registered User:', registeredUser);
+      setShowLogin(true);
       // Set success message and reset form fields
       setPopupMessage('Sign up Successful!');
       setIsError(false);
@@ -30,7 +37,7 @@ const Signup = () => {
       // Automatically hide the popup and redirect after 2 seconds
       setTimeout(() => {
         setPopupMessage('');
-        navigate('/');
+        setShowLogin(true);
       }, 2000);
     } catch (error) {
       // Set error message
@@ -91,35 +98,51 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSignup} style={formStyle}>
-        {popupMessage && <div style={popupStyle}>{popupMessage}</div>}
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          style={inputStyle}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          style={inputStyle}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={inputStyle}
-        />
-        <button type="submit" style={buttonStyle}>
-          Sign Up
-        </button>
-      </form>
-    </div>
+    <RegisteredUserContext.Provider value={registeredUser}>
+      <div>
+        {showLogin && registeredUser && registeredUser.user && registeredUser.user.email ? (
+          <Login registeredUser={registeredUser} />
+        ) : (
+          <form onSubmit={handleSignup} style={formStyle}>
+            {popupMessage && (
+              <div style={popupStyle}>
+                {popupMessage}
+              </div>
+            )}
+            <label>Username:</label>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              style={inputStyle}
+            />
+            <label>Email:</label>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              style={inputStyle}
+            />
+            <label>Password:</label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              style={inputStyle}
+            />
+            <button type="submit" style={buttonStyle}>
+              Sign Up
+            </button>
+          </form>
+        )}
+        {popupMessage && (
+          <p style={{ color: isError ? 'red' : 'green' }}>{popupMessage}</p>
+        )}
+      </div>
+    </RegisteredUserContext.Provider>
   );
 };
 

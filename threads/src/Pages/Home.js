@@ -1,12 +1,11 @@
 import React from 'react';
 import PostList from '../components/Posts/PostList';
 import CreatePost from '../components/Posts/CreatePost';
-import EditPost from '../components/Posts/EditPost';
+import UpdatePost from '../components/Posts/UpdatePost';
 
 const Home = () => {
   return (
     <div>
-      <h1>Threads Mini</h1>
       <CreatePost />
       <PostList />
     </div>
