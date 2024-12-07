@@ -1,33 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 const Navbar = () => {
-  // Add hover effects inside the useEffect
-  useEffect(() => {
-    const navLinks = document.querySelectorAll('a');
-    navLinks.forEach((link) => {
-      link.addEventListener('mouseover', () => {
-        link.style.backgroundColor = '#1E90FF';
-        link.style.color = '#ffffff';
-      });
-      link.addEventListener('mouseout', () => {
-        link.style.backgroundColor = 'transparent';
-        link.style.color = '#ffffff';
-      });
-    });
-
-
-    // Cleanup listeners on component unmount
-    return () => {
-      navLinks.forEach((link) => {
-        link.removeEventListener('mouseover', () => {});
-        link.removeEventListener('mouseout', () => {});
-      });
-    };
-  }, []);
-
-
   return (
     <nav style={styles.navbar}>
       <div style={styles.navContainer}>
@@ -49,7 +23,6 @@ const Navbar = () => {
     </nav>
   );
 };
-
 
 const styles = {
   navbar: {
@@ -73,7 +46,7 @@ const styles = {
     fontWeight: '700',
   },
   logoLink: {
-    color: '#ffffff',
+    color: '#000000',
     textDecoration: 'none',
     fontSize: '20px',
   },
@@ -87,7 +60,7 @@ const styles = {
     margin: '0 20px',
   },
   navLink: {
-    color: '#ffffff',
+    color: '#000000',
     textDecoration: 'none',
     fontSize: '16px',
     fontWeight: '500',
@@ -95,11 +68,11 @@ const styles = {
     borderRadius: '5px',
     transition: 'background-color 0.3s, color 0.3s',
   },
+  // Hover effect added directly in the styles
+  navLinkHover: {
+    backgroundColor: '#1E90FF',
+    color: '#ffffff',
+  },
 };
 
-
 export default Navbar;
-
-
-
-
